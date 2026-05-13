@@ -13,6 +13,22 @@ process.on('unhandledRejection', (reason, promise) => {
   fs.appendFileSync('error.log', `[UNHANDLED] ${new Date().toISOString()}: ${reason}\n`);
 });
 
+fs.appendFileSync('error.log', `\n--- STARTING APP ---\n`);
+fs.appendFileSync('error.log', `[DIAGNOSTICS] CWD: ${process.cwd()}\n`);
+try {
+  const files = fs.readdirSync(process.cwd());
+  fs.appendFileSync('error.log', `[DIAGNOSTICS] Files in root: ${files.join(', ')}\n`);
+  
+  if (files.includes('.next')) {
+    const nextFiles = fs.readdirSync(process.cwd() + '/.next');
+    fs.appendFileSync('error.log', `[DIAGNOSTICS] Files in .next: ${nextFiles.join(', ')}\n`);
+  } else {
+    fs.appendFileSync('error.log', `[DIAGNOSTICS] .next folder NOT FOUND!\n`);
+  }
+} catch (e) {
+  fs.appendFileSync('error.log', `[DIAGNOSTICS ERROR] ${e.message}\n`);
+}
+
 try {
   const app = next({ dev });
   const handle = app.getRequestHandler();
