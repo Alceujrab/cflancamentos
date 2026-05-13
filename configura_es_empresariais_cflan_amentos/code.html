@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#0d1c2d",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#39000b",
+                    "primary-container": "#0f172a",
+                    "on-tertiary-container": "#ee3a5a",
+                    "surface-bright": "#2c3a4c",
+                    "secondary-fixed-dim": "#4edea3",
+                    "inverse-primary": "#565e74",
+                    "secondary-container": "#00a572",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "primary-fixed": "#dae2fd",
+                    "error-container": "#93000a",
+                    "outline": "#909097",
+                    "on-background": "#d4e4fa",
+                    "on-secondary-fixed": "#002113",
+                    "surface-container": "#122131",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "on-primary-container": "#798098",
+                    "on-surface-variant": "#c6c6cd",
+                    "surface-container-high": "#1c2b3c",
+                    "surface-tint": "#bec6e0",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary": "#bec6e0",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#40000d",
+                    "inverse-surface": "#d4e4fa",
+                    "inverse-on-surface": "#233143",
+                    "background": "#051424",
+                    "surface-container-highest": "#273647",
+                    "surface": "#051424",
+                    "primary-fixed-dim": "#bec6e0",
+                    "surface-dim": "#051424",
+                    "on-secondary-container": "#00311f",
+                    "on-error": "#690005",
+                    "on-primary": "#283044",
+                    "on-surface": "#d4e4fa",
+                    "tertiary": "#ffb2b7",
+                    "surface-variant": "#273647",
+                    "on-tertiary": "#67001b",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container-lowest": "#010f1f",
+                    "tertiary-fixed": "#ffdadb",
+                    "on-secondary": "#003824",
+                    "outline-variant": "#45464d",
+                    "secondary-fixed": "#6ffbbe",
+                    "secondary": "#4edea3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-padding": "32px",
+                    "gutter": "24px",
+                    "glass-margin": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "label-md": ["JetBrains Mono"],
+                    "stats-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "stats-lg": ["40px", {"lineHeight": "48px", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: linear-gradient(135deg, #0F172A 0%, #051424 100%);
+            min-height: 100vh;
+            color: #d4e4fa;
+        }
+        .glass-pane {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ambient-glow-secondary {
+            box-shadow: 0 0 30px rgba(78, 222, 163, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ghost-input:focus {
+            outline: none;
+            border-bottom-color: #4edea3;
+            box-shadow: 0 4px 12px -6px rgba(78, 222, 163, 0.4);
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/30 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">CFLançamentos</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-on-surface font-label-md transition-colors" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-md transition-colors" href="#">Clientes</a>
+<a class="text-secondary font-bold border-b-2 border-secondary font-label-md transition-colors" href="#">Configurações</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-white/5 p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-white/5 p-2 rounded-full transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-0 h-full hidden md:flex flex-col p-glass-margin z-40 bg-surface-container/20 backdrop-blur-2xl border-r border-white/10 shadow-[20px_0_40px_rgba(0,0,0,0.4)] w-64 pt-20">
+<div class="flex flex-col gap-2 flex-grow">
+<div class="px-4 py-3 flex items-center gap-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 rounded-lg cursor-pointer active:translate-x-1">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</div>
+<div class="px-4 py-3 flex items-center gap-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 rounded-lg cursor-pointer active:translate-x-1">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md">Clientes</span>
+</div>
+<div class="px-4 py-3 flex items-center gap-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 rounded-lg cursor-pointer active:translate-x-1">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-label-md">Veículos</span>
+</div>
+<div class="px-4 py-3 flex items-center gap-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 rounded-lg cursor-pointer active:translate-x-1">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md">Lançamentos</span>
+</div>
+<div class="px-4 py-3 flex items-center gap-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 rounded-lg cursor-pointer active:translate-x-1">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md">Relatórios</span>
+</div>
+<div class="px-4 py-3 flex items-center gap-3 bg-secondary/10 text-secondary border-r-4 border-secondary shadow-[0_0_20px_rgba(78,222,163,0.2)] rounded-lg cursor-pointer active:translate-x-1">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Configurações</span>
+</div>
+</div>
+<div class="mt-auto p-4 glass-pane rounded-xl mb-4">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">person</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface leading-tight">Admin User</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Financial Control</p>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary font-bold py-2 rounded-lg text-sm ambient-glow-secondary active:scale-95 transition-transform">
+                Novo Lançamento
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 md:pb-12 px-4 md:pl-72 md:pr-12 max-w-7xl mx-auto">
+<header class="mb-10">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-2">Configurações do Negócio</h1>
+<p class="text-on-surface-variant font-body-md">Gerencie a identidade visual e as informações fiscais da sua empresa.</p>
+</header>
+<!-- Business Settings Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Logo Section -->
+<section class="lg:col-span-1">
+<div class="glass-pane p-8 rounded-xl h-full flex flex-col items-center text-center">
+<h2 class="font-headline-lg-mobile text-on-surface mb-6 self-start">Logomarca</h2>
+<div class="relative group cursor-pointer mb-6">
+<div class="w-48 h-48 rounded-2xl overflow-hidden border-2 border-dashed border-white/20 flex items-center justify-center bg-white/5 hover:bg-white/10 transition-colors">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500" data-alt="A clean, minimalist corporate logo placeholder displayed on a digital screen. The environment is a high-tech financial office with deep blue tones and glass textures. Soft neon green accents highlight the interface edges, creating a sophisticated professional atmosphere. The lighting is focused and cinematic, emphasizing transparency and modern business aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQD7cn4DTPcuPTtRI7kp9JabljK6kfNtIsvSFhWmf4EA-CUXQp_T404bWvm2Wr2U8faRGwZKzwUMk-jDGgeyIB04B9b9-1a5JId7zXPfDnWQOd4boJzEMdxoI_4ZRopo7TGvJmMfsMQV2DVsoC97jRTTAjSVMbIeHpB-pesjn3L9I4qTK-EZ7O8Il0s53MA13ZCTfuG8j53pJDgprIRzDPA4e7C7j2-uYp40jajvlKG6Ekvc3LZoR8MzpnNDiECNK-I2nG4tvB_7Ig"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl">cloud_upload</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-6">Formatos aceitos: PNG, SVG ou JPG. Tamanho máximo 2MB.</p>
+<div class="flex gap-3 w-full mt-auto">
+<button class="flex-1 glass-pane py-2 rounded-lg font-label-md text-on-surface hover:bg-white/10 transition-colors">Alterar</button>
+<button class="px-3 glass-pane py-2 rounded-lg text-error hover:bg-error/10 transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Details Section -->
+<section class="lg:col-span-2">
+<div class="glass-pane p-8 rounded-xl">
+<h2 class="font-headline-lg-mobile text-on-surface mb-8">Informações Corporativas</h2>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-8">
+<!-- CNPJ -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-secondary uppercase tracking-widest text-[10px]">CNPJ da Empresa</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 bottom-2 text-on-surface-variant/50 text-xl">corporate_fare</span>
+<input class="w-full bg-transparent border-b border-white/10 pl-8 pb-2 text-on-surface font-body-md ghost-input transition-all" placeholder="00.000.000/0001-00" type="text"/>
+</div>
+</div>
+<!-- E-mail -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-secondary uppercase tracking-widest text-[10px]">E-mail de Contato</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 bottom-2 text-on-surface-variant/50 text-xl">mail</span>
+<input class="w-full bg-transparent border-b border-white/10 pl-8 pb-2 text-on-surface font-body-md ghost-input transition-all" placeholder="contato@empresa.com.br" type="email"/>
+</div>
+</div>
+<!-- Telefone -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-secondary uppercase tracking-widest text-[10px]">Telefone Comercial</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 bottom-2 text-on-surface-variant/50 text-xl">call</span>
+<input class="w-full bg-transparent border-b border-white/10 pl-8 pb-2 text-on-surface font-body-md ghost-input transition-all" placeholder="(11) 99999-9999" type="tel"/>
+</div>
+</div>
+<!-- Website -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-secondary uppercase tracking-widest text-[10px]">Website Oficial</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 bottom-2 text-on-surface-variant/50 text-xl">language</span>
+<input class="w-full bg-transparent border-b border-white/10 pl-8 pb-2 text-on-surface font-body-md ghost-input transition-all" placeholder="https://www.empresa.com.br" type="url"/>
+</div>
+</div>
+</div>
+<!-- Endereço -->
+<div class="flex flex-col gap-2 pt-4">
+<label class="font-label-md text-secondary uppercase tracking-widest text-[10px]">Endereço Completo</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 top-1 text-on-surface-variant/50 text-xl">location_on</span>
+<textarea class="w-full bg-transparent border-b border-white/10 pl-8 pb-2 text-on-surface font-body-md ghost-input transition-all resize-none" placeholder="Rua das Finanças, 123 - Centro, São Paulo - SP" rows="3"></textarea>
+</div>
+</div>
+<div class="pt-6 flex justify-end gap-4">
+<button class="px-8 py-3 rounded-lg font-label-md text-on-surface-variant hover:text-on-surface transition-colors" type="button">Cancelar</button>
+<button class="px-10 py-3 bg-secondary text-on-secondary font-bold rounded-lg shadow-[0_0_20px_rgba(78,222,163,0.3)] hover:scale-105 active:scale-95 transition-all" type="submit">
+                                Salvar Alterações
+                            </button>
+</div>
+</form>
+</div>
+</section>
+</div>
+<!-- System Preferences Area (Extra Context) -->
+<section class="mt-12">
+<h2 class="font-headline-lg-mobile text-on-surface mb-6">Preferências do Sistema</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-pane p-6 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">currency_exchange</span>
+<div>
+<p class="font-label-md text-on-surface">Moeda Padrão</p>
+<p class="text-xs text-on-surface-variant">Real Brasileiro (BRL)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</div>
+<div class="glass-pane p-6 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">notifications_active</span>
+<div>
+<p class="font-label-md text-on-surface">Notificações Fiscais</p>
+<p class="text-xs text-on-surface-variant">Ativadas para e-mail</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</div>
+<div class="glass-pane p-6 rounded-xl flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">security</span>
+<div>
+<p class="font-label-md text-on-surface">Segurança</p>
+<p class="text-xs text-on-surface-variant">Autenticação 2FA ativa</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface-container-lowest/40 backdrop-blur-lg border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] md:hidden rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px]">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add_chart</span>
+<span class="font-label-md text-[10px]">Lançamentos</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-[10px]">Relatórios</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary scale-110 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-[10px]">Menu</span>
+</div>
+</nav>
+</body></html>

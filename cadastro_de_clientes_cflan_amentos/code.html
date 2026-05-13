@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#0d1c2d",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#39000b",
+                    "primary-container": "#0f172a",
+                    "on-tertiary-container": "#ee3a5a",
+                    "surface-bright": "#2c3a4c",
+                    "secondary-fixed-dim": "#4edea3",
+                    "inverse-primary": "#565e74",
+                    "secondary-container": "#00a572",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "primary-fixed": "#dae2fd",
+                    "error-container": "#93000a",
+                    "outline": "#909097",
+                    "on-background": "#d4e4fa",
+                    "on-secondary-fixed": "#002113",
+                    "surface-container": "#122131",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "on-primary-container": "#798098",
+                    "on-surface-variant": "#c6c6cd",
+                    "surface-container-high": "#1c2b3c",
+                    "surface-tint": "#bec6e0",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary": "#bec6e0",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#40000d",
+                    "inverse-surface": "#d4e4fa",
+                    "inverse-on-surface": "#233143",
+                    "background": "#051424",
+                    "surface-container-highest": "#273647",
+                    "surface": "#051424",
+                    "primary-fixed-dim": "#bec6e0",
+                    "surface-dim": "#051424",
+                    "on-secondary-container": "#00311f",
+                    "on-error": "#690005",
+                    "on-primary": "#283044",
+                    "on-surface": "#d4e4fa",
+                    "tertiary": "#ffb2b7",
+                    "surface-variant": "#273647",
+                    "on-tertiary": "#67001b",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container-lowest": "#010f1f",
+                    "tertiary-fixed": "#ffdadb",
+                    "on-secondary": "#003824",
+                    "outline-variant": "#45464d",
+                    "secondary-fixed": "#6ffbbe",
+                    "secondary": "#4edea3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-padding": "32px",
+                    "gutter": "24px",
+                    "glass-margin": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "label-md": ["JetBrains Mono"],
+                    "stats-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "stats-lg": ["40px", {"lineHeight": "48px", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: radial-gradient(circle at top right, #1E293B, #0F172A), #051424;
+            min-height: 100vh;
+        }
+        .glass-card {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-secondary {
+            box-shadow: 0 0 20px rgba(78, 222, 163, 0.3);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/30 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">CFLançamentos</div>
+<div class="hidden md:flex items-center gap-8">
+<span class="text-on-surface-variant hover:text-on-surface font-label-md text-label-md cursor-pointer transition-colors">Dashboard</span>
+<span class="text-secondary font-bold border-b-2 border-secondary font-label-md text-label-md cursor-pointer">Clientes</span>
+<span class="text-on-surface-variant hover:text-on-surface font-label-md text-label-md cursor-pointer transition-colors">Veículos</span>
+<span class="text-on-surface-variant hover:text-on-surface font-label-md text-label-md cursor-pointer transition-colors">Lançamentos</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200">account_circle</span>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full hidden md:flex flex-col p-glass-margin z-40 bg-surface-container/20 backdrop-blur-2xl border-r border-white/10 shadow-[20px_0_40px_rgba(0,0,0,0.4)] w-64 pt-20">
+<div class="mb-8 px-4">
+<h2 class="font-headline-lg text-primary">CFLançamentos</h2>
+<p class="text-on-surface-variant opacity-60 text-sm">Financial Control</p>
+</div>
+<nav class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 cursor-pointer active:translate-x-1 font-label-md text-label-md">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 bg-secondary/10 text-secondary border-r-4 border-secondary shadow-[0_0_20px_rgba(78,222,163,0.2)] transition-all duration-300 cursor-pointer font-label-md text-label-md">
+<span class="material-symbols-outlined">group</span>
+                Clientes
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 cursor-pointer active:translate-x-1 font-label-md text-label-md">
+<span class="material-symbols-outlined">directions_car</span>
+                Veículos
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 cursor-pointer active:translate-x-1 font-label-md text-label-md">
+<span class="material-symbols-outlined">payments</span>
+                Lançamentos
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 cursor-pointer active:translate-x-1 font-label-md text-label-md">
+<span class="material-symbols-outlined">description</span>
+                Relatórios
+            </div>
+<div class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 cursor-pointer active:translate-x-1 font-label-md text-label-md">
+<span class="material-symbols-outlined">settings</span>
+                Configurações
+            </div>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-3 bg-secondary text-on-secondary rounded-xl font-bold glow-secondary active:scale-95 transition-transform">
+                Novo Lançamento
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pt-24 pb-32 md:pl-72 px-4 md:pr-12">
+<div class="max-w-5xl mx-auto space-y-8">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Clientes</h1>
+<p class="text-on-surface-variant font-body-md">Gerencie o cadastro de clientes e parceiros financeiros.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-2 glass-card rounded-full text-on-surface hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                        Filtros
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2 glass-card rounded-full text-on-surface hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        Exportar
+                    </button>
+</div>
+</header>
+<!-- Registration Form Card -->
+<section class="glass-card rounded-xl p-8 shadow-2xl relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/5 rounded-full blur-[80px]"></div>
+<h2 class="font-headline-lg text-headline-lg text-secondary mb-8">Novo Cadastro</h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Nome</label>
+<input class="w-full bg-white/5 border-b-2 border-white/10 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 rounded-t-lg transition-all py-3 px-4 outline-none" placeholder="Ex: João Silva" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">CPF/CNPJ</label>
+<input class="w-full bg-white/5 border-b-2 border-white/10 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 rounded-t-lg transition-all py-3 px-4 outline-none" placeholder="000.000.000-00" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Telefone</label>
+<input class="w-full bg-white/5 border-b-2 border-white/10 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 rounded-t-lg transition-all py-3 px-4 outline-none" placeholder="(11) 99999-9999" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">E-mail</label>
+<input class="w-full bg-white/5 border-b-2 border-white/10 focus:border-secondary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/30 rounded-t-lg transition-all py-3 px-4 outline-none" placeholder="cliente@email.com" type="email"/>
+</div>
+<div class="md:col-span-2 flex justify-end pt-4">
+<button class="bg-secondary text-on-secondary px-10 py-4 rounded-xl font-bold glow-secondary hover:scale-[1.02] active:scale-95 transition-all duration-200 flex items-center gap-2" type="submit">
+<span class="material-symbols-outlined">person_add</span>
+                            Cadastrar Cliente
+                        </button>
+</div>
+</form>
+</section>
+<!-- Registered Clients List -->
+<section class="space-y-4">
+<h3 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">list_alt</span>
+                    Clientes Cadastrados
+                </h3>
+<div class="glass-card rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5 border-b border-white/10">
+<th class="px-6 py-4 font-label-md text-label-md text-secondary">NOME</th>
+<th class="px-6 py-4 font-label-md text-label-md text-secondary">CPF/CNPJ</th>
+<th class="px-6 py-4 font-label-md text-label-md text-secondary">E-MAIL</th>
+<th class="px-6 py-4 font-label-md text-label-md text-secondary text-right">AÇÕES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AS</div>
+<span class="font-medium">Ana Souza</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">452.XXX.XXX-89</td>
+<td class="px-6 py-4 text-on-surface-variant">ana.souza@email.com</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-lg text-error">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold">RM</div>
+<span class="font-medium">Ricardo Martins</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">08.XXX.XXX/0001-22</td>
+<td class="px-6 py-4 text-on-surface-variant">contato@martinscorp.com</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-lg text-error">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary font-bold">LC</div>
+<span class="font-medium">Lúcia Cavalcante</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">123.XXX.XXX-01</td>
+<td class="px-6 py-4 text-on-surface-variant">lucia.c@webmail.com</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-lg text-error">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface-container-lowest/40 backdrop-blur-lg border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] md:hidden rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary scale-110 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Clientes</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Relatórios</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-label-md text-label-md">Menu</span>
+</div>
+</nav>
+</body></html>

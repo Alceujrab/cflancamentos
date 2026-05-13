@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#0d1c2d",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#39000b",
+                    "primary-container": "#0f172a",
+                    "on-tertiary-container": "#ee3a5a",
+                    "surface-bright": "#2c3a4c",
+                    "secondary-fixed-dim": "#4edea3",
+                    "inverse-primary": "#565e74",
+                    "secondary-container": "#00a572",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "primary-fixed": "#dae2fd",
+                    "error-container": "#93000a",
+                    "outline": "#909097",
+                    "on-background": "#d4e4fa",
+                    "on-secondary-fixed": "#002113",
+                    "surface-container": "#122131",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "on-primary-container": "#798098",
+                    "on-surface-variant": "#c6c6cd",
+                    "surface-container-high": "#1c2b3c",
+                    "surface-tint": "#bec6e0",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary": "#bec6e0",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#40000d",
+                    "inverse-surface": "#d4e4fa",
+                    "inverse-on-surface": "#233143",
+                    "background": "#051424",
+                    "surface-container-highest": "#273647",
+                    "surface": "#051424",
+                    "primary-fixed-dim": "#bec6e0",
+                    "surface-dim": "#051424",
+                    "on-secondary-container": "#00311f",
+                    "on-error": "#690005",
+                    "on-primary": "#283044",
+                    "on-surface": "#d4e4fa",
+                    "tertiary": "#ffb2b7",
+                    "surface-variant": "#273647",
+                    "on-tertiary": "#67001b",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-container-lowest": "#010f1f",
+                    "tertiary-fixed": "#ffdadb",
+                    "on-secondary": "#003824",
+                    "outline-variant": "#45464d",
+                    "secondary-fixed": "#6ffbbe",
+                    "secondary": "#4edea3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-padding": "32px",
+                    "gutter": "24px",
+                    "glass-margin": "16px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "label-md": ["JetBrains Mono"],
+                    "stats-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "stats-lg": ["40px", {"lineHeight": "48px", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: radial-gradient(circle at top left, #0f172a, #051424);
+            min-height: 100vh;
+        }
+        .glass-pane {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-secondary {
+            box-shadow: 0 0 20px rgba(78, 222, 163, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-glow {
+            box-shadow: 0 0 25px rgba(78, 222, 163, 0.15);
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/30 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">CFLançamentos</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-white/5 px-4 py-2 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Buscar..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="fixed left-0 top-0 h-full hidden md:flex flex-col p-glass-margin z-40 bg-surface-container/20 backdrop-blur-2xl border-r border-white/10 shadow-[20px_0_40px_rgba(0,0,0,0.4)] w-64 pt-20">
+<div class="mb-8 px-4">
+<div class="text-primary font-headline-lg text-headline-lg">CFLançamentos</div>
+<div class="text-on-surface-variant font-label-md text-label-md">Financial Control</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Clientes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-secondary/10 text-secondary border-r-4 border-secondary shadow-[0_0_20px_rgba(78,222,163,0.2)] transition-all duration-300 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="font-label-md text-label-md">Veículos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Lançamentos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md text-label-md">Relatórios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all duration-300 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Configurações</span>
+</a>
+</nav>
+<button class="mt-auto bg-secondary text-on-secondary px-4 py-4 rounded-xl font-bold flex items-center justify-center gap-2 glow-secondary hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Novo Lançamento
+        </button>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 pb-32 px-container-padding min-h-screen">
+<div class="max-w-6xl mx-auto space-y-12">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Gestão de Veículos</h1>
+<p class="text-on-surface-variant max-w-lg mt-2">Cadastre e gerencie a frota para controle preciso de despesas e receitas por unidade.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-end">
+<span class="text-on-surface-variant font-label-md text-label-md">Total Ativos</span>
+<span class="font-stats-lg text-stats-lg text-secondary">24</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Registration Form -->
+<section class="lg:col-span-5">
+<div class="glass-pane p-8 rounded-2xl sticky top-24">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="add_circle">add_circle</span>
+                            Novo Veículo
+                        </h2>
+<form class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Placa</label>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary/30 transition-all font-label-md" placeholder="ABC-1234" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Modelo do Veículo</label>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary/30 transition-all" placeholder="Ex: Toyota Corolla 2024" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Observação</label>
+<textarea class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary/30 transition-all resize-none" placeholder="Detalhes adicionais sobre o veículo..." rows="4"></textarea>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-bold glow-secondary hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+                                Salvar Veículo
+                            </button>
+</form>
+</div>
+</section>
+<!-- Vehicle List -->
+<section class="lg:col-span-7 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Frota Cadastrada</h2>
+<span class="text-on-surface-variant font-label-md text-label-md bg-white/5 px-3 py-1 rounded-full border border-white/10">Recentemente Adicionados</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Vehicle Card 1 -->
+<div class="glass-pane p-6 rounded-2xl group hover:bg-white/10 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-secondary/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="directions_car">directions_car</span>
+</div>
+<span class="font-label-md text-label-md text-secondary border border-secondary/30 px-2 py-0.5 rounded">RVE-4D21</span>
+</div>
+<h3 class="font-headline-lg-mobile text-on-surface mb-1">BMW 320i</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Veículo de uso executivo, cor branca perolizada, manutenção em dia.</p>
+<div class="flex items-center justify-between pt-4 border-t border-white/10">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant">Lançamentos</span>
+<span class="font-bold text-on-surface">12</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-white/10 rounded-lg text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-error/20 rounded-lg text-error transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 2 -->
+<div class="glass-pane p-6 rounded-2xl group hover:bg-white/10 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-secondary/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+</div>
+<span class="font-label-md text-label-md text-secondary border border-secondary/30 px-2 py-0.5 rounded">GKL-9088</span>
+</div>
+<h3 class="font-headline-lg-mobile text-on-surface mb-1">Mercedes Actros</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Caminhão de carga pesada, rota São Paulo x Curitiba semanal.</p>
+<div class="flex items-center justify-between pt-4 border-t border-white/10">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant">Lançamentos</span>
+<span class="font-bold text-on-surface">45</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-white/10 rounded-lg text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-error/20 rounded-lg text-error transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 3 -->
+<div class="glass-pane p-6 rounded-2xl group hover:bg-white/10 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-secondary/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="directions_car">directions_car</span>
+</div>
+<span class="font-label-md text-label-md text-secondary border border-secondary/30 px-2 py-0.5 rounded">PQA-5541</span>
+</div>
+<h3 class="font-headline-lg-mobile text-on-surface mb-1">Toyota Hilux</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Pick-up para visitas a campo, tração 4x4, revisada recentemente.</p>
+<div class="flex items-center justify-between pt-4 border-t border-white/10">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant">Lançamentos</span>
+<span class="font-bold text-on-surface">08</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-white/10 rounded-lg text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 hover:bg-error/20 rounded-lg text-error transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Vehicle Card 4 -->
+<div class="glass-pane p-6 rounded-2xl group hover:bg-white/10 transition-all cursor-pointer border-dashed border-white/20 flex flex-col items-center justify-center min-h-[220px]">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-4" data-icon="add_circle">add_circle</span>
+<span class="font-label-md text-on-surface-variant">Adicionar Novo</span>
+</div>
+</div>
+<!-- Statistics / Mini Charts Section (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+<div class="glass-pane p-6 rounded-2xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="trending_up">trending_up</span>
+<span class="font-label-md">Custo por Frota (Mensal)</span>
+</div>
+<div class="h-16 flex items-end gap-1 px-2">
+<div class="w-full bg-secondary/20 h-[40%] rounded-t-sm"></div>
+<div class="w-full bg-secondary/30 h-[60%] rounded-t-sm"></div>
+<div class="w-full bg-secondary/40 h-[85%] rounded-t-sm"></div>
+<div class="w-full bg-secondary/20 h-[30%] rounded-t-sm"></div>
+<div class="w-full bg-secondary/50 h-[95%] rounded-t-sm"></div>
+<div class="w-full bg-secondary/30 h-[50%] rounded-t-sm"></div>
+<div class="w-full bg-secondary h-[100%] rounded-t-sm active-glow"></div>
+</div>
+</div>
+<div class="glass-pane p-6 rounded-2xl flex flex-col justify-between">
+<span class="font-label-md text-on-surface-variant">Manutenções Programadas</span>
+<div class="flex items-baseline gap-2 mt-4">
+<span class="font-stats-lg text-stats-lg text-on-surface">04</span>
+<span class="text-error font-label-md">Pendentes</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface-container-lowest/40 backdrop-blur-lg border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary scale-110 tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="add_chart">add_chart</span>
+<span class="font-label-md text-[10px]">Veículos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-label-md text-[10px]">Relatórios</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-label-md text-[10px]">Menu</span>
+</a>
+</nav>
+<!-- FAB (Suppressed on details/settings screens, but relevant here for mobile quick action) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-secondary text-on-secondary rounded-full flex items-center justify-center shadow-lg glow-secondary md:hidden z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</body></html>
