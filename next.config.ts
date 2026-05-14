@@ -4,9 +4,13 @@ const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     return config;
   },
-  // CloudLinux LVE limits worker spawning; skip the type-check worker during build.
+  // CloudLinux LVE limits process spawning; skip the type-check worker
+  // and use worker_threads + a single CPU during build.
   typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
+  experimental: {
+    cpus: 1,
+    workerThreads: true,
+  },
 };
 
 export default nextConfig;
